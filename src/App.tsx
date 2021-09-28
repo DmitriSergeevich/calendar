@@ -1,10 +1,17 @@
+import { Layout } from 'antd'
 import React from 'react'
-
+import AppRouter from './components/AppRouter'
+import Navbar from './components/Navbar'
+import './App.css'
 const App: React.FC = () => {
   return (
-    <div>
-      work
-    </div>
+    <Layout>
+      <Navbar/>
+      <Layout.Content>
+        <AppRouter/>
+      </Layout.Content>
+      
+    </Layout>
   )
 }
 
