@@ -15,7 +15,7 @@ export const EventCalendar: React.FC<EventCalendarProps> = (props) => {
     const currentDayEvents = props.events.filter(ev => ev.date === formateDate)
     return (
       <div>
-        {currentDayEvents.map((ev, idx) => 
+        {currentDayEvents.map((ev, idx) =>
           <div key={idx}>{ev.description}</div>)}
       </div>
     );
@@ -23,6 +23,6 @@ export const EventCalendar: React.FC<EventCalendarProps> = (props) => {
 
   return (
     <Calendar
-      dateCellRender={dateCellRender}/>
+      dateCellRender={dateCellRender} />
   )
 }

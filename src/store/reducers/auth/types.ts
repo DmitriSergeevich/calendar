@@ -8,10 +8,10 @@ export interface iAuthState {
 }
 
 export enum AuthActionEnum {
-  SET_AUTH = 'SET_AUTH',
-  SET_ERROR = 'SET_ERROR',
-  SET_USER = 'SET_USER',
-  SET_IS_LOADING = 'SET_IS_LOADING',
+  SET_AUTH = "SET_AUTH",
+  SET_ERROR = "SET_ERROR",
+  SET_USER = "SET_USER",
+  SET_IS_LOADING = "SET_IS_LOADING",
 }
 
 export interface iSetAuthAction {
@@ -24,15 +24,15 @@ export interface iSetErrorAction {
 }
 export interface iSetUserAction {
   type: AuthActionEnum.SET_USER;
-  payload: iUser
+  payload: iUser;
 }
 export interface iSetLoadAction {
   type: AuthActionEnum.SET_IS_LOADING;
-  payload: boolean
+  payload: boolean;
 }
 
-export type AuthAction = 
-  iSetAuthAction |
-  iSetErrorAction |
-  iSetUserAction |
-  iSetLoadAction
+export type AuthAction =
+  | iSetAuthAction
+  | iSetErrorAction
+  | iSetUserAction
+  | iSetLoadAction;

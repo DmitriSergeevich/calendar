@@ -9,21 +9,21 @@ export interface iRoute {
 }
 
 export enum RouteNames {
-  LOGIN = '/login',
-  EVENT = '/'
+  LOGIN = "/login",
+  EVENT = "/",
 }
 
 export const publicRoutes: iRoute[] = [
   {
     path: RouteNames.LOGIN,
     exact: true,
-    component: Login
-  }
-]
+    component: Login,
+  },
+];
 export const privateRoutes: iRoute[] = [
   {
     path: RouteNames.EVENT,
     exact: true,
-    component: Event
-  }
-]
+    component: Event,
+  },
+];

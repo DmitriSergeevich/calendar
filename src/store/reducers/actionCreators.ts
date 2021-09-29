@@ -3,5 +3,5 @@ import { EventActionCreators } from "./event/actionCreators";
 
 export const allActionCreators = {
   ...AuthActionCreators,
-  ...EventActionCreators
-}
+  ...EventActionCreators,
+};

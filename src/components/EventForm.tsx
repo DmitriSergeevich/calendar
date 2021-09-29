@@ -19,21 +19,21 @@ export const EventForm: React.FC<EventFormProps> = (props) => {
     date: '',
     description: '',
   } as iEvent);
-  
+
   const selectDate = (date: Moment | null) => {
     if (date) {
-      setEvent({...event, date: formatDate(date?.toDate())});
-    }    
+      setEvent({ ...event, date: formatDate(date?.toDate()) });
+    }
   }
-  const {user} = useTypedSelector(state=> state.auth)
+  const { user } = useTypedSelector(state => state.auth)
 
   const submitForm = () => {
-    props.submit({...event, autor: user.username});
-    
+    props.submit({ ...event, autor: user.username });
+
   }
 
   return (
-    <Form onFinish={()=>submitForm()}>
+    <Form onFinish={() => submitForm()}>
 
       <Form.Item
         label="Описание события"
@@ -41,8 +41,8 @@ export const EventForm: React.FC<EventFormProps> = (props) => {
         rules={[rules.require()]}
       >
         <Input
-        onChange={e=> setEvent({...event, description: e.target.value})}
-        value={event.description}/>
+          onChange={e => setEvent({ ...event, description: e.target.value })}
+          value={event.description} />
 
       </Form.Item>
 
@@ -51,7 +51,7 @@ export const EventForm: React.FC<EventFormProps> = (props) => {
         name="date"
         rules={[rules.require(), rules.isDateAfter('Нельзя создать дату из прошлого')]}>
         <DatePicker
-          onChange={(date)=> selectDate(date)}
+          onChange={(date) => selectDate(date)}
         />
       </Form.Item>
 
@@ -60,19 +60,19 @@ export const EventForm: React.FC<EventFormProps> = (props) => {
         name="users"
         rules={[rules.require()]}
       >
-        <Select style={{ width: 120 }} onChange={(guest: string) => (setEvent({...event, guest}))}>
-          {props.guests.map(guest=> 
+        <Select style={{ width: 120 }} onChange={(guest: string) => (setEvent({ ...event, guest }))}>
+          {props.guests.map(guest =>
             <Select.Option key={guest.username} value={guest.username}>{guest.username}</Select.Option>
           )}
-          
+
         </Select>
       </Form.Item>
       <Row justify='end'>
         <Form.Item>
-          <Button          
+          <Button
             type="primary"
             htmlType="submit">
-              Создать
+            Создать
           </Button>
         </Form.Item>
       </Row>

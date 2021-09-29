@@ -6,20 +6,18 @@ import { useActions } from '../hooks/useActions'
 import { useTypedSelector } from '../hooks/useTypedSelector'
 import { iEvent } from '../models/iEvent'
 
-
-
 const Event: React.FC = () => {
-  const [isModalVisible , setIsModalVisible] = useState(false)
+  const [isModalVisible, setIsModalVisible] = useState(false)
   const { guests, events } = useTypedSelector(state => state.event)
   const { user } = useTypedSelector(state => state.auth)
-  
+
   const { fetchGuests, createEvent, fetchEvents } = useActions()
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchGuests()
     fetchEvents(user.username)
-  },[])
-  
+  }, [])
+
   const addNewEvent = (event: iEvent) => {
     setIsModalVisible(false)
     createEvent(event)
@@ -27,23 +25,23 @@ const Event: React.FC = () => {
 
   return (
     <Layout>
-      
-      <EventCalendar events={events}/>
+
+      <EventCalendar events={events} />
       <Row justify='center'>
         <Button
-         onClick={()=> setIsModalVisible(true)}>
+          onClick={() => setIsModalVisible(true)}>
           Добавить событие
-        </Button>       
+        </Button>
       </Row>
       <Modal
         title="Добавить событие"
         visible={isModalVisible}
         footer={null}
-        onCancel={()=> setIsModalVisible(false)}>
-          <EventForm
-            guests={guests}
-            submit={addNewEvent}/>
-          
+        onCancel={() => setIsModalVisible(false)}>
+        <EventForm
+          guests={guests}
+          submit={addNewEvent} />
+
       </Modal>
     </Layout>
   )

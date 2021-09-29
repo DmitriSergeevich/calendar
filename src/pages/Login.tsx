@@ -8,8 +8,8 @@ const Login: React.FC = () => {
       <Layout>
         <Row justify='center' align='middle' className='h100'>
           <Card>
-            <LoginForm/>
-          </Card>          
+            <LoginForm />
+          </Card>
         </Row>
       </Layout>
     </div>

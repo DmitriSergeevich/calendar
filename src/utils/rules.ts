@@ -1,4 +1,3 @@
-import { message } from "antd";
 import moment, { Moment } from "moment";
 
 export const rules = {
@@ -8,10 +7,10 @@ export const rules = {
   }),
   isDateAfter: (message: string) => () => ({
     validator(_: any, value: Moment) {
-      if(value.isSameOrAfter(moment())){
-        return Promise.resolve()
+      if (value.isSameOrAfter(moment())) {
+        return Promise.resolve();
       }
-      return Promise.reject(new Error(message))
-    }
-  })
-}
+      return Promise.reject(new Error(message));
+    },
+  }),
+};
