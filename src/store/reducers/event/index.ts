@@ -3,7 +3,7 @@ import { iUser } from "../../../models/iUser";
 import { EventAction, EventActionEnum, EventState } from "./types";
 
 const initialState: EventState = {
-  guest: [] as iUser[],
+  guests: [] as iUser[],
   events: [] as iEvent[],
 }
 
@@ -12,7 +12,7 @@ export default function EventReducer(state = initialState, action: EventAction):
     case EventActionEnum.SET_GUESTS:      
       return {
         ...state,
-        guest: action.payload
+        guests: action.payload
       };
     case EventActionEnum.SET_EVENTS:      
       return {

@@ -2,7 +2,7 @@ import { iEvent } from "../../../models/iEvent";
 import { iUser } from "../../../models/iUser";
 
 export interface EventState {
-  guest: iUser[];
+  guests: iUser[];
   events: iEvent[];
 }
 
